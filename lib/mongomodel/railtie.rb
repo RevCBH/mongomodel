@@ -8,7 +8,7 @@ module MongoModel
       config.action_dispatch.rescue_responses.merge!(rescue_responses)
     end
     
-    config.app_generators.orm :mongo_model, :migration => false    
+    config.app_generators.orm :mongo_model, :migration => false
 
     config.mongo_model = ActiveSupport::OrderedOptions.new
 
@@ -56,7 +56,6 @@ module MongoModel
         end
       end
     end
-    
     initializer "mongomodel.observers" do |app|
       MongoModel::EmbeddedDocument.observers = app.config.mongomodel.observers || []
     end
